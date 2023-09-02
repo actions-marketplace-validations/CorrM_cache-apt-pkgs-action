@@ -29,7 +29,7 @@ test "${debug}" = "true" && set -x
 packages="${@:6}"
 
 if test "${cache_hit}" = "true"; then
-  ${script_dir}/restore_pkgs.sh "${cache_dir}" "${cache_restore_root}" "${execute_install_scripts}" "${debug}"
+  sudo bash ${script_dir}/restore_pkgs.sh "${cache_dir}" "${cache_restore_root}" "${execute_install_scripts}" "${debug}"
 else
   sudo bash ${script_dir}/install_and_cache_pkgs.sh "${cache_dir}" "${debug}" ${packages}
 fi
