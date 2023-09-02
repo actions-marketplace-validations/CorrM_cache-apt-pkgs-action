@@ -44,6 +44,7 @@ runs:
   steps:
     - id: pre-cache
       run: |
+        sudo apt update
         sudo bash ${GITHUB_ACTION_PATH}/pre_cache_action.sh \
           ~/cache-apt-pkgs \
           "$VERSION" \
