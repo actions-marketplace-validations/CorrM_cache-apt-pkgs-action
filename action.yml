@@ -44,7 +44,7 @@ runs:
   steps:
     - id: pre-cache
       run: |
-        ${GITHUB_ACTION_PATH}/pre_cache_action.sh \
+        sudo ${GITHUB_ACTION_PATH}/pre_cache_action.sh \
           ~/cache-apt-pkgs \
           "$VERSION" \
           "$EXEC_INSTALL_SCRIPTS" \
@@ -66,7 +66,7 @@ runs:
 
     - id: post-cache
       run: |
-        ${GITHUB_ACTION_PATH}/post_cache_action.sh \
+        sudo ${GITHUB_ACTION_PATH}/post_cache_action.sh \
           ~/cache-apt-pkgs \
           / \
           "$CACHE_HIT" \
@@ -92,7 +92,7 @@ runs:
 
     - id: clean-cache
       run: |
-        rm -rf ~/cache-apt-pkgs
+        sudo rm -rf ~/cache-apt-pkgs
       shell: bash
 
     - id: upload-logs
